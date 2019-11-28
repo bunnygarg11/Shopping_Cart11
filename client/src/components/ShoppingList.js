@@ -43,7 +43,7 @@ class ShoppingList extends Component {
                   {product_name}
                 </div>
                 <div>
-                  <ProductList product_Id={_id} />
+                <ProductList product_Id={_id} product_name={product_name}/>
                 </div>
               </ListGroupItem>
           );

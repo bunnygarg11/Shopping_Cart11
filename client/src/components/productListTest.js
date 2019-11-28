@@ -12,6 +12,7 @@ import {
 import { connect } from "react-redux";
 import { addItem, getItems, deleteItem } from "../actions/itemActions";
 import PropTypes from "prop-types";
+import EditModal from "./editModal"
 
 class ItemModal extends Component {
   state = {
@@ -55,7 +56,7 @@ class ItemModal extends Component {
   };
 
   render() {
-    console.log(this.props);
+    
     return (
       <div>
         {this.props.isAuthenticated ? (
@@ -67,6 +68,8 @@ class ItemModal extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Update Product</ModalHeader>
           <ModalBody>
+          <EditModal product={this.props.product_name} product_id={this.props.product_Id}/>
+
             <Container>
               <table className="table table-sm">
                 <thead>

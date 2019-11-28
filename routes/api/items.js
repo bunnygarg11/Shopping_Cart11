@@ -81,5 +81,15 @@ router.delete('/:id', auth, async(req, res) => {
     res.status(404).json({ success: false })
    }
   })
-
+  router.post("/update",async (req,res)=>{
+      console.log("gv n")
+     try{
+      req.body.item.map(async itemm=>{
+        await Item.findByIdAndUpdate(itemm._id,{quantity:itemm.quantity})
+      })
+      res.json({success:true})
+     }catch(err){
+       res.status(404).json({msg:"failed"})
+     }
+    })
 module.exports = router
